@@ -27,4 +27,14 @@ class DailyQuiz
     {
         return $this->questions;
     }
+
+    /**
+     * Get the frist question
+     * 
+     * @return Question
+     */
+    public function getSpecifiedQuestion(int $index): Question
+    {
+        return $this->questions[$index];
+    }
 }

@@ -24,6 +24,8 @@ class DailyQuizService implements DailyQuizInterface
         // Récupérer les données (bdd)
         $dailyQuestion = $this->questionRepository->getDailyQuestion($themeName);
 
+        // dd($dailyQuestion->toArray());
+
         $questions = [];
 
         // Générer les objets de domaine
@@ -33,7 +35,7 @@ class DailyQuizService implements DailyQuizInterface
             // Quatre Réponses
             $answers = [];
             foreach ($item->answers as $answer) {
-                $answers[] = new Answer($answer->answer, $answer->is_correct);
+                $answers[] = new Answer($answer->id, $answer->answer, $answer->is_correct);
             }
             // Une Question
             $questions[] =  new Question($item->question, $item->difficulty, $answers);

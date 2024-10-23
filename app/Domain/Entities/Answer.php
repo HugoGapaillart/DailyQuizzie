@@ -4,14 +4,24 @@ namespace App\Domain\Entities;
 
 class Answer 
 {
-    public function __construct(private readonly string $answer, private readonly bool $isCorrect) {}
+    public function __construct(private readonly int $id, private readonly string $answer, private readonly bool $isCorrect) {}
 
+    /**
+     * Get the id.
+     * 
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+    
     /**
      * Get the answer.
      * 
      * @return string
      */
-    public function answer(): string
+    public function getAnswer(): string
     {
         return $this->answer;
     }
